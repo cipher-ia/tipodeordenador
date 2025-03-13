@@ -1,0 +1,21 @@
+GET http://localhost:8080/webapi/ordenador
+
+#######
+
+POST http://localhost:8080/webapi/ordenador
+content-type: application/json
+
+{
+    "modelo": "2a",
+    "marca": "windows",
+    "precio":435.67,
+    "serie": "123456789b"
+} 
+
+######
+
+GET http://localhost:8080/webapi/ordenador/123456789a
+
+######
+
+DELETE http://localhost:8080/webapi/ordenador/123456789a
