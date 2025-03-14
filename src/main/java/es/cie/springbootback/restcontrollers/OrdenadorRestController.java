@@ -18,6 +18,7 @@ import es.cie.springbootback.repositories.OrdenadorRepository;
 
 @RestController
 @RequestMapping("webapi/ordenador")
+
 public class OrdenadorRestController {
 
     @Autowired
@@ -26,7 +27,7 @@ public class OrdenadorRestController {
     private OrdenadorRepository ordenadorRepository;
 
     @GetMapping
-    //@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List <Ordenador> buscarTodos() {
 
         return ordenadorRepository.buscarTodos();
@@ -35,8 +36,7 @@ public class OrdenadorRestController {
 
 
     @PostMapping
-    //@CrossOrigin(origins = "http://localhost:4200")
-
+    @CrossOrigin(origins = "http://localhost:4200")
     public void insertar(@RequestBody Ordenador ordenador){
 
         ordenadorRepository.insertar(ordenador);
@@ -44,6 +44,7 @@ public class OrdenadorRestController {
     }
 
     @GetMapping ({"/{serie}"})
+    @CrossOrigin(origins = "http://localhost:4200")
     public Ordenador buscarUno (@PathVariable String serie){
 
         return ordenadorRepository.buscarUno(serie);
@@ -51,6 +52,7 @@ public class OrdenadorRestController {
     }
 
     @DeleteMapping("/{serie}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public void borrar(@PathVariable String serie){
 
         ordenadorRepository.borrar(new Ordenador(serie));
