@@ -10,4 +10,7 @@ public interface OrdenadorRepository {
     void insertar (Ordenador ordenador);
     Ordenador buscarUno(String serie);
     void borrar (Ordenador ordenador);
+    List<Ordenador> mostrarElementos(int atras, int vista);
+        
+    
 }

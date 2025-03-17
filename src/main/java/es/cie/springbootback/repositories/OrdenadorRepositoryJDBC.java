@@ -38,4 +38,10 @@ public class OrdenadorRepositoryJDBC implements OrdenadorRepository {
         plantilla.update("delete from ordenador where numerodeserie=?", ordenador.getSerie());
     }
 
+    @Override
+    public List<Ordenador> mostrarElementos(int atras, int elementos) {
+    String sql = "SELECT * FROM ordenador LIMIT ? OFFSET ?";
+    return plantilla.query(sql, new OrdenadorRowMapper(),elementos, atras);
+    }
+
 }

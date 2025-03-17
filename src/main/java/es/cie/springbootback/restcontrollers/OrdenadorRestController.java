@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import es.cie.springbootback.Ordenador;
 import es.cie.springbootback.repositories.OrdenadorRepository;
 
+
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 @RestController
 @RequestMapping("webapi/ordenador")
 
@@ -58,4 +62,16 @@ public class OrdenadorRestController {
         ordenadorRepository.borrar(new Ordenador(serie));
 
     }
+
+   
+    @GetMapping("/paginado")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List <Ordenador>atrasarOAdelantar(@RequestParam (defaultValue = "0") int atras,
+    @RequestParam (defaultValue = "5") int elementos){
+    
+        return ordenadorRepository.mostrarElementos(atras, elementos);
+            
+        
+    }
+
 }
